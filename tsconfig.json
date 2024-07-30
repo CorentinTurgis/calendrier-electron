@@ -1,18 +1,14 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
-    "watch": true,
-    "target": "ES2015",
-    "noEmitOnError": true,
+    "target": "ES6",
+    "module": "commonjs",
     "strict": true,
-    "experimentalDecorators": true
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "outDir": "./dist",
+    "skipLibCheck": true
   },
-  "include": [
-    "back/**/*.ts",
-    "front/**/*.ts",
-  ],
-  "exclude": [
-    "node_modules",
-    "**/*.spec.ts"
-  ]
+  "include": ["src/**/*.ts"]
 }
