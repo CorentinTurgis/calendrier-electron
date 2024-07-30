@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "watch": true,
+    "target": "ES2015",
+    "noEmitOnError": true,
+    "strict": true,
+    "experimentalDecorators": true
+  },
+  "include": [
+    "back/**/*.ts",
+    "front/**/*.ts",
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
+}

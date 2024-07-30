@@ -1,0 +1,12 @@
+# Webstorm
+.idea/
+
+# npm
+/node_modules
+package-lock.json
+
+# build
+dist/
+
+# gitignore
+.gitignore
