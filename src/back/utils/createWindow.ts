@@ -1,11 +1,11 @@
-import { BrowserWindow, Menu } from "electron"
-import { join } from 'node:path'
+import { BrowserWindow } from 'electron';
+import { join } from 'node:path';
 
 export function createWindow(parent?: BrowserWindow, princ: boolean = true): BrowserWindow {
   // Create the browser window.
-  const modal = !princ
+  const modal: boolean = !princ;
 
-  const mainWindow = new BrowserWindow({
+  const mainWindow: BrowserWindow = new BrowserWindow({
     width: 800,
     height: 600,
     minHeight: 400,
@@ -16,18 +16,12 @@ export function createWindow(parent?: BrowserWindow, princ: boolean = true): Bro
     parent: parent,
     // modal: modal,
     webPreferences: {
-      preload: join(__dirname, '../preload.js')
-    }
-  })
-  mainWindow.webContents.openDevTools()
-  if (princ) {
-    mainWindow.loadFile('./pages/user.html')
-  }
-  else {
-    mainWindow.loadFile('./pages/addUser.html')
-    mainWindow.removeMenu()
-  }
+      preload: join(__dirname, '../preload.js'),
+    },
+  });
+  mainWindow.webContents.openDevTools();
+  mainWindow.loadFile('./pages/event.html');
 
-  mainWindow.webContents.openDevTools()
-  return mainWindow
+  mainWindow.webContents.openDevTools();
+  return mainWindow;
 }
