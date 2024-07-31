@@ -1,11 +1,10 @@
 {
-  "name": "calendrier-groupe",
+  "name": "calendrier-electron",
   "version": "1.0.0",
-  "main": "./back/main.js",
+  "main": "./dist/back/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc --watch && electron .",
-    "dev": "ts-node src/main.ts"
+    "build": "tsc",
+    "start": "electron ."
   },
   "author": "",
   "license": "ISC",
@@ -15,8 +14,7 @@
     "typescript": "^5.5.4"
   },
   "dependencies": {
-    "reflect-metadata": "^0.2.2",
-    "sqlite3": "^5.1.7",
-    "typeorm": "^0.3.20"
+    "mysql2": "^3.11.0",
+    "rxjs": "^7.8.1"
   }
 }
