@@ -1,7 +1,8 @@
 export interface CalendarEvent {
-  id: number
-  name: string
-  start: string,
-  end: string,
-  desc: string,
+  id: number;
+  title: string;
+  start: string;
+  end: string;
+  short_desc: string;
+  color: string;
 }

@@ -4,7 +4,6 @@ import { printList } from '../../utils/index.js';
 const trRes: HTMLElement | null = document.getElementById('res');
 
 function renewAff() {
-  console.log("test");
   window.electron.getAllEvents().then((events: CalendarEvent[]) => {
     if (trRes) {
       printList(trRes, events, (id: number) => {
@@ -20,3 +19,5 @@ function renewAff() {
 document.addEventListener('DOMContentLoaded', () => {
   renewAff();
 });
+
+
