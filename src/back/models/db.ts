@@ -4,5 +4,5 @@ export const db: Connection = createConnection({
   host: 'localhost',
   user: 'test',
   password: 'root',
-  database: 'my_calendar_db',
+  database: 'my_calendar',
 });

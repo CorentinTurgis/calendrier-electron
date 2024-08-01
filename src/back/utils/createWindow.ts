@@ -1,9 +1,8 @@
 import { BrowserWindow } from 'electron';
-import { join } from 'node:path';
+import { join } from 'path'
 
-export function createWindow(parent?: BrowserWindow, princ: boolean = true): BrowserWindow {
+export function createWindow(parent?: BrowserWindow): BrowserWindow {
   // Create the browser window.
-  const modal: boolean = !princ;
 
   const mainWindow: BrowserWindow = new BrowserWindow({
     width: 800,
@@ -20,7 +19,7 @@ export function createWindow(parent?: BrowserWindow, princ: boolean = true): Bro
     },
   });
   mainWindow.webContents.openDevTools();
-  mainWindow.loadFile('./pages/event.html');
+  mainWindow.loadFile('./pages/calendar.html');
 
   mainWindow.webContents.openDevTools();
   return mainWindow;

@@ -1,8 +1,9 @@
-import { db } from './db.js';
+import { db } from './db';
 import { QueryError, QueryResult } from 'mysql2';
 import { CalendarEvent } from '../../front/interfaces/CalendarEvent';
 
 export function getAllEvents(): Promise<CalendarEvent[] | QueryError> {
+  console.log("hey");
   return new Promise((resolve, reject): void => {
     db.query('SELECT * FROM calendarEvents', (err: QueryError | null, res: QueryResult): void => {
       if (err) {
