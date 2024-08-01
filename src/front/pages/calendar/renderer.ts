@@ -1,7 +1,7 @@
 import { EventService } from './event.service.js';
 
 const container: HTMLElement | null = document.getElementById('calendar');
-const eventService = new EventService();
+const eventService: EventService = new EventService();
 
 if (container) {
   const currentDate: Date = new Date();
@@ -36,7 +36,6 @@ if (container) {
     container.appendChild(dayElement);
   }
 
-  // Récupérer et afficher les événements
   eventService.getAllEvents(currentMonth, currentYear).then(events => {
     events.forEach(event => {
       const eventStartDate: Date = new Date(event.start);
