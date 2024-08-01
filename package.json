@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "main": "./dist/back/main.js",
   "scripts": {
-    "build": "tsc",
+    "dev": "npm run build && npm run start",
+    "build": "npm run build-back && npm run build-front",
+    "build-back": "tsc --project tsconfig.back.json",
+    "build-front": "tsc --project tsconfig.front.json",
     "start": "electron ."
   },
   "author": "",

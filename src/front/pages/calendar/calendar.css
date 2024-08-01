@@ -1,0 +1,67 @@
+body {
+    background: #201e43;
+}
+
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    width: 90%;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.day {
+    border: 1px solid #fff1db;
+    border-radius: 5px;
+    background: #fff1db;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.day-header {
+    font-weight: bold;
+    background-color: #536493;
+    border-radius: 5px;
+}
+
+.empty {
+    border: none;
+}
+
+.day .event {
+    background-color: #d4bdac;
+    border: 1px solid #ddd;
+    padding: 5px;
+    width: 30%;
+    margin-top: 5px;
+    font-size: 0.8em;
+    text-align: left;
+    border-radius: 5px;
+}
+
+.day .event p {
+    margin: 0;
+}
+
+.current-month .day:nth-child(n + 5) {
+    background-color: #e6f7ff;
+}
+
+.current-month .day:nth-child(n + 5):nth-child(-n + 9) {
+    background-color: #b3e5fc;
+}
+
+.current-month .day:nth-child(n + 10):nth-child(-n + 16) {
+    background-color: #4fc3f7;
+}
+
+.current-month .day:nth-child(n + 17):nth-child(-n + 23) {
+    background-color: #0288d1;
+}
+
+.current-month .day:nth-child(n + 24):nth-child(-n + 31) {
+    background-color: #01579b;
+    color: #fff1db;
+}

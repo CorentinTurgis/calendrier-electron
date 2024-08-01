@@ -1,6 +1,6 @@
-import { db } from './db';
+import { db } from './db.js';
 import { QueryError, QueryResult } from 'mysql2';
-import { CalendarEvent } from '../../front/interfaces/CalendarEvent';
+import { CalendarEvent } from '../../front/interfaces/CalendarEvent.js';
 
 export function getAllEvents(): Promise<CalendarEvent[] | QueryError> {
   console.log("hey");

@@ -1,5 +1,5 @@
 import { BrowserWindow } from 'electron';
-import { join } from 'path'
+import { join } from 'path';
 
 export function createWindow(parent?: BrowserWindow): BrowserWindow {
   // Create the browser window.

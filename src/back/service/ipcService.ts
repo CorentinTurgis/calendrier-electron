@@ -1,6 +1,6 @@
 import { BrowserWindow, ipcMain, IpcMainInvokeEvent } from 'electron';
-import { CalendarEvent } from '../../front/interfaces/CalendarEvent';
-import { addEvent, deleteEvent, getAllEvents } from '../models/calendarEvent';
+import { CalendarEvent } from '../../front/interfaces/CalendarEvent.js';
+import { addEvent, deleteEvent, getAllEvents } from '../models/calendarEvent.js';
 import { QueryError } from 'mysql2';
 
 ipcMain.handle('add-event', async (evt: IpcMainInvokeEvent, event: CalendarEvent): Promise<string> => {

@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ES6",
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "outDir": "./dist/front",
+    "skipLibCheck": true,
+    "moduleSuffixes": [".js", ""]
+  },
+  "include": [
+    "src/front/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.specs.ts"
+  ]
+}

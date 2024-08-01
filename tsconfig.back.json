@@ -8,10 +8,11 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "outDir": "./dist",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "moduleSuffixes": [".js", ""]
   },
   "include": [
-    "src/**/*.ts"
+    "src/back/**/*.ts"
   ],
   "exclude": [
     "node_modules",
