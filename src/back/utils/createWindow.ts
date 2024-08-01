@@ -20,6 +20,7 @@ export function createWindow(parent?: BrowserWindow): BrowserWindow {
   });
   mainWindow.webContents.openDevTools();
   mainWindow.loadFile('./src/front/pages/calendar/calendar.html');
+  // mainWindow.loadFile('./src/front/pages/addEvent/addEvent.html');
 
   mainWindow.webContents.openDevTools();
   return mainWindow;
