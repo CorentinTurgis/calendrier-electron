@@ -24,5 +24,5 @@ contextBridge.exposeInMainWorld('electron', {
     ipcRenderer.send('refresh-calendar'),
 
   onRefreshCalendar: (callback: () => void) =>
-    ipcRenderer.on('refresh-calendar', callback),
+    ipcRenderer.on('refresh-calendar', callback)
 });

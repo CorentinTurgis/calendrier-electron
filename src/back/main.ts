@@ -12,8 +12,9 @@ app.whenReady().then(() => {
   });
 
   ipcMain.on('refresh-calendar', () => {
-      win.reload();
-
+      if (win) {
+        win.webContents.send('refresh-calendar');
+      }
   });
 
   app.on('activate', () => {
