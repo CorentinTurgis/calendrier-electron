@@ -1,13 +1,9 @@
-import { CalendarEvent } from '../../interfaces/CalendarEvent';
 const container: HTMLElement | null = document.getElementById('calendar');
 
 if (container) {
   const currentDate = new Date();
   const currentMonth = currentDate.getMonth();
   const currentYear = currentDate.getFullYear();
-  const CEvt: CalendarEvent = { desc: '', name: '', id: 4, start: 'e', end: 'e'};
-
-  console.log(CEvt);
 
   // Les jours de la semaine
   const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];

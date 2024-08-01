@@ -4,7 +4,7 @@ import { CalendarEvent } from '../../front/interfaces/CalendarEvent.js';
 
 export function getAllEvents(): Promise<CalendarEvent[] | QueryError> {
   return new Promise((resolve, reject): void => {
-    db.query('SELECT * FROM calendarEvents', (err: QueryError | null, res: QueryResult): void => {
+    db.query('SELECT * FROM events', (err: QueryError | null, res: QueryResult): void => {
       if (err) {
         reject(err);
       } else {

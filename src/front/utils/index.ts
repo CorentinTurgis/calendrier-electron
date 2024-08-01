@@ -20,8 +20,8 @@ export function printLine(event: CalendarEvent, events: CalendarEvent[], trRes: 
   if (event.id) {
     tdId.innerHTML = event.id.toString();
   }
-  tdName.innerHTML = event.name;
-  tdDesc.innerHTML = event.desc;
+  tdName.innerHTML = event.title;
+  tdDesc.innerHTML = event.short_desc;
   tr.append(tdId, tdName, tdDesc);
   trRes?.appendChild(tr);
 }
