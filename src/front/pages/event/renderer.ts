@@ -1,5 +1,5 @@
-import { CalendarEvent } from '../interfaces/CalendarEvent';
-import { printList } from '../utils';
+import { CalendarEvent } from '../../interfaces/CalendarEvent';
+import { printList } from '../../utils';
 
 const trRes: HTMLElement | null = document.getElementById('res');
 
