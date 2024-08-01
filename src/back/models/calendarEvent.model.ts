@@ -37,17 +37,21 @@ export function getEventById(id: number): Promise<CalendarEvent[] | QueryError> 
 }
 
 export function addEvent(event: CalendarEvent): Promise<any> {
+  console.log(JSON.stringify(event));
   return new Promise((resolve, reject): void => {
-    db.query('INSERT INTO calendarEvents (name, `description`) VALUES (?,?);',
-      ['test', 'test'],
-      (err: QueryError | null, res: QueryResult): void => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(res);
-        }
-      },
-    );
+    const query: string = `
+      INSERT INTO events (title, start, end, short_desc, color)
+      VALUES (?, ?, ?, ?, ?);
+    `;
+    const values: string[] = [event.title, event.start, event.end, event.short_desc, event.color];
+
+    db.query(query, values, (err: QueryError | null, res: QueryResult): void => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(res);
+      }
+    });
   });
 }
 

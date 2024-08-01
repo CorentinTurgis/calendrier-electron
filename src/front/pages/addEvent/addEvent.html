@@ -1,19 +1,72 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-<!--    <link href="../assets/styles.css" rel="stylesheet">-->
-    <title>Hello World!</title>
+    <title>Ajouter un événement</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
-
 <body>
-<h1>Ajout d'un evenement'</h1>
-<input type="text" id="name" placeholder="Libélé"><br>
-<input type="text" id="desc" placeholder="Description"><br>
-<button id="add-event">Ajout</button>
+<div class="container">
+    <h1>Ajouter un événement</h1>
+    <form id="addEventForm">
+        <div class="form-group">
+            <label for="title">Titre</label>
+            <input type="text" id="title" name="title" required>
+        </div>
+        <div class="form-group">
+            <label for="short_desc">Description courte</label>
+            <textarea id="short_desc" name="short_desc" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="start">Date de début</label>
+            <input type="datetime-local" id="start" name="start" required>
+        </div>
+        <div class="form-group">
+            <label for="end">Date de fin</label>
+            <input type="datetime-local" id="end" name="end" required>
+        </div>
+        <div class="form-group">
+            <label for="color">Couleur</label>
+            <input type="color" id="color" name="color" value="#ff0000" required>
+        </div>
+        <div class="form-group">
+            <button type="submit">Ajouter l'événement</button>
+        </div>
+    </form>
+</div>
 <script src="../../../../dist/front/pages/addEvent/renderer.js" type="module"></script>
 </body>
-
 </html>
