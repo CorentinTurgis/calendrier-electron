@@ -1,5 +1,5 @@
-import { MyDate } from '../../utils/my_date.utils.js';
-import { EventService } from './event.service.js';
+import { MyDate } from '../../utils/MyDate.class.js';
+import { EventService } from './../../services/event.service.js';
 
 export class CalendarService {
   myDate: MyDate;

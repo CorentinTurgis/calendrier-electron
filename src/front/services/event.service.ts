@@ -1,5 +1,5 @@
-import { CalendarEvent } from '../../interfaces/CalendarEvent';
-import { MyDate } from '../../utils/my_date.utils.js';
+import { CalendarEvent } from '../interfaces/CalendarEvent';
+import { MyDate } from '../utils/MyDate.class';
 
 export class EventService {
   private getAllEvents(month?: number, year?: number): Promise<CalendarEvent[]> {
