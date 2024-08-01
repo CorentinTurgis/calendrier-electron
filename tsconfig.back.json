@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "CommonJS",
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "outDir": "./dist",
+    "skipLibCheck": true,
+    "moduleSuffixes": [".js", ""]
+  },
+  "include": [
+    "src/back/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.specs.ts"
+  ]
+}
