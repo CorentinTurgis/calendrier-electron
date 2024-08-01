@@ -6,12 +6,7 @@ const trRes: HTMLElement | null = document.getElementById('res');
 function renewAff() {
   window.electron.getAllEvents().then((events: CalendarEvent[]) => {
     if (trRes) {
-      printList(trRes, events, (id: number) => {
-        return () => {
-          window.electron.deleteEvent(id);
-          renewAff();
-        };
-      });
+      printList(trRes, events);
     }
   });
 }

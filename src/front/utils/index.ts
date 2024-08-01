@@ -1,17 +1,15 @@
 import { CalendarEvent } from '../interfaces/CalendarEvent';
 
-type evtCb = () => void
-
-export function printList(trRes: HTMLElement, events: CalendarEvent[], cbDel: (id: number) => evtCb): void {
+export function printList(trRes: HTMLElement, events: CalendarEvent[]): void {
   if (trRes) {
     trRes.innerHTML = '';
   }
   for (const event of events) {
-    printLine(event, events, trRes, cbDel);
+    printLine(event, events, trRes);
   }
 }
 
-export function printLine(event: CalendarEvent, events: CalendarEvent[], trRes: HTMLElement, cbDel: (id: number) => evtCb): void {
+export function printLine(event: CalendarEvent, events: CalendarEvent[], trRes: HTMLElement): void {
   const tr: HTMLTableRowElement = document.createElement('tr');
   const tdId: HTMLTableCellElement = document.createElement('td');
   const tdName: HTMLTableCellElement = document.createElement('td');
