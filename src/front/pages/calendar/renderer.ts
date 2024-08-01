@@ -1,37 +1,65 @@
+import { EventService } from './event.service.js';
+
 const container: HTMLElement | null = document.getElementById('calendar');
+const eventService: EventService = new EventService();
 
 if (container) {
-  const currentDate = new Date();
-  const currentMonth = currentDate.getMonth();
-  const currentYear = currentDate.getFullYear();
+  const currentDate: Date = new Date();
+  const currentMonth: number = currentDate.getMonth() + 1;
+  const currentYear: number = currentDate.getFullYear();
 
-  // Les jours de la semaine
-  const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const daysOfWeek: string[] = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-  // Créez les en-têtes de jour de la semaine
   daysOfWeek.forEach(day => {
-    const dayHeader = document.createElement('div');
+    const dayHeader: HTMLDivElement = document.createElement('div');
     dayHeader.className = 'day day-header';
     dayHeader.innerText = day;
     container.appendChild(dayHeader);
   });
 
-  // Obtenez le premier jour du mois et le nombre de jours dans le mois
-  const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
-  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+  const firstDayOfMonth: number = new Date(currentYear, currentMonth - 1, 1).getDay();
+  const daysInMonth: number = new Date(currentYear, currentMonth, 0).getDate();
 
-  // Créez des cases vides pour les jours avant le début du mois
   for (let i = 0; i < firstDayOfMonth; i++) {
-    const emptyDay = document.createElement('div');
+    const emptyDay: HTMLDivElement = document.createElement('div');
     emptyDay.className = 'day';
     container.appendChild(emptyDay);
   }
 
-  // Créez les jours du mois
   for (let day = 1; day <= daysInMonth; day++) {
-    const dayElement = document.createElement('div');
+    const dayElement: HTMLDivElement = document.createElement('div');
     dayElement.className = 'day';
-    dayElement.innerText = day.toString();
+    const dayNumber: HTMLParagraphElement = document.createElement('p');
+    dayNumber.innerText = day.toString();
+    dayElement.appendChild(dayNumber);
+
     container.appendChild(dayElement);
   }
+
+  eventService.getAllEvents(currentMonth, currentYear).then(events => {
+    events.forEach(event => {
+      const eventStartDate: Date = new Date(event.start);
+      const eventDay: number = eventStartDate.getDate();
+
+      const dayElements = container.querySelectorAll('.day');
+      const dayElement = dayElements[firstDayOfMonth + eventDay];
+
+      if (dayElement) {
+        const eventDiv: HTMLDivElement = document.createElement('div');
+        eventDiv.className = 'event';
+
+        const eventTitle: HTMLParagraphElement = document.createElement('p');
+        eventTitle.innerText = event.title;
+        const eventTime: HTMLParagraphElement = document.createElement('p');
+        eventTime.innerText = `${eventStartDate.getHours()}:${eventStartDate.getMinutes().toString().padStart(2, '0')}`;
+
+        eventDiv.appendChild(eventTitle);
+        eventDiv.appendChild(eventTime);
+
+        dayElement.appendChild(eventDiv);
+      }
+    });
+  }).catch(error => {
+    console.error('Erreur lors de la récupération des événements:', error);
+  });
 }
