@@ -1,12 +1,22 @@
-// Modules to control application life and create native browser window
-import { app, BrowserWindow } from 'electron';
-import { createWindow } from './utils/createWindow.js';
+import { app, BrowserWindow, ipcMain } from 'electron';
+import { createWindow, createAddEventWindow } from './utils/createWindow.js';
 import { windows } from './utils/windows.js';
 import './service/ipcService.js';
 
 app.whenReady().then(() => {
   const win: BrowserWindow = createWindow();
   windows.push(win);
+
+  ipcMain.on('open-add-event-window', (event, { startDate, endDate}) => {
+    createAddEventWindow(win, startDate, endDate);
+  });
+
+  ipcMain.on('refresh-calendar', () => {
+      if (win) {
+        win.webContents.send('refresh-calendar');
+      }
+  });
+
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow();

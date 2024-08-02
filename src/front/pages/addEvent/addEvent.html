@@ -1,19 +1,39 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-<!--    <link href="../assets/styles.css" rel="stylesheet">-->
-    <title>Hello World!</title>
+    <title>Ajouter un événement</title>
+    <link rel="stylesheet" href="addEvent.css">
 </head>
-
 <body>
-<h1>Ajout d'un evenement'</h1>
-<input type="text" id="name" placeholder="Libélé"><br>
-<input type="text" id="desc" placeholder="Description"><br>
-<button id="add-event">Ajout</button>
-<script src="../../../../dist/front/pages/addEvent/renderer.js" type="module"></script>
+<div class="container">
+    <h1>Ajouter un événement</h1>
+    <form id="addEventForm">
+        <div class="form-group">
+            <label for="title">Titre</label>
+            <input type="text" id="title" name="title" required>
+        </div>
+        <div class="form-group">
+            <label for="short_desc">Description courte</label>
+            <textarea id="short_desc" name="short_desc" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="start">Date de début</label>
+            <input type="datetime-local" id="start" name="start" required>
+        </div>
+        <div class="form-group">
+            <label for="end">Date de fin</label>
+            <input type="datetime-local" id="end" name="end" required>
+        </div>
+        <div class="form-group">
+            <label for="color">Couleur</label>
+            <input type="color" id="color" name="color" value="#ff0000" required>
+        </div>
+        <div class="form-group">
+            <button type="submit">Ajouter l'événement</button>
+        </div>
+    </form>
+</div>
+<script src="../../../../dist/front/pages/addEvent/addEvent.renderer.js" type="module"></script>
 </body>
-
 </html>
